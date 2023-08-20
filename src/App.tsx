@@ -17,21 +17,24 @@ const App = () => {
         <Routes>
           <Route path={rootBranch} element={<SearchPage searchItem={""} />} />
           <Route
-            path="/projects"
+            path={rootBranch + "/project"}
             element={<SearchPage searchItem={"project"} />}
           />
-          <Route path="/notes" element={<SearchPage searchItem={"note"} />} />
-          <Route path="/routine" element={<Routine />} />
           <Route
-            path="/search"
+            path={rootBranch + "/notes"}
+            element={<SearchPage searchItem={"note"} />}
+          />
+          <Route path={rootBranch + "/routine"} element={<Routine />} />
+          <Route
+            path={rootBranch + "/search"}
             element={<SearchPage searchItem={""} />}
           ></Route>
           <Route path="/syllabus" element={<Syllabus />}></Route>
           <Route
-            path="/coverpage-generator"
+            path={rootBranch + "/coverpage-generator"}
             element={<CoverpageGenerator />}
           ></Route>
-          <Route path="/text2hw" element={<Text2Hw />}></Route>
+          <Route path={rootBranch + "/text2hw"} element={<Text2Hw />}></Route>
         </Routes>
       </div>
     </Router>
