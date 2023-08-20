@@ -35,7 +35,7 @@ const Text2HwOutput: React.FC<Props> = ({
       doc.setFont("CustomFont");
     } else {
       doc.addFont(
-        rootBranch + "src/assets/fonts/" + handwriting + ".ttf",
+        `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf",
         "Handwriting",
         "normal"
       );
