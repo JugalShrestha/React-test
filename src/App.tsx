@@ -14,7 +14,7 @@ const App = () => {
         <NavBar />
         <SearchBar />
         <Routes>
-          <Route path="/" element={<SearchPage searchItem={""} />} />
+          <Route path="/React-test" element={<SearchPage searchItem={""} />} />
           <Route
             path="/projects"
             element={<SearchPage searchItem={"project"} />}
