@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import rootBranch from "./variables/rootBranch";
 
 const NavBar = () => {
   return (
     <section className="nav-bar">
       <ul className="nav-options">
-        <Link to="/" className="logo">
+        <Link to={rootBranch} className="logo">
           BIM21
         </Link>
         <div className="pc-options">

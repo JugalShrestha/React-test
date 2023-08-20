@@ -6,6 +6,7 @@ import SearchPage from "./pages/SearchPage";
 import Syllabus from "./pages/project-pages/Syllabus";
 import CoverpageGenerator from "./pages/project-pages/CoverpageGenerator/CoverpageGenerator";
 import Text2Hw from "./pages/project-pages/Text2Hw/Text2Hw";
+import rootBranch from "./components/variables/rootBranch";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
         <NavBar />
         <SearchBar />
         <Routes>
-          <Route path="/React-test" element={<SearchPage searchItem={""} />} />
+          <Route path={rootBranch} element={<SearchPage searchItem={""} />} />
           <Route
             path="/projects"
             element={<SearchPage searchItem={"project"} />}
