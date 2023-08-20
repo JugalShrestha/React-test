@@ -29,7 +29,7 @@ const App = () => {
             path={rootBranch + "/search"}
             element={<SearchPage searchItem={""} />}
           ></Route>
-          <Route path="/syllabus" element={<Syllabus />}></Route>
+          <Route path={rootBranch + "/syllabus"} element={<Syllabus />}></Route>
           <Route
             path={rootBranch + "/coverpage-generator"}
             element={<CoverpageGenerator />}

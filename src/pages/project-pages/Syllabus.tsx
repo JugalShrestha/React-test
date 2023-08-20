@@ -1,4 +1,5 @@
 import GoBackBtn from "../../components/GoBackBtn";
+import rootBranch from "../../components/variables/rootBranch";
 
 const Syllabus = () => {
   return (
@@ -11,18 +12,24 @@ const Syllabus = () => {
       <div className="syllabus-body">
         <ul className="semester-options">
           <li className="semester-option">
-            <a href="/src/assets/pdf/syllabus/2nd-sem.pdf" target="_blank">
+            <a
+              href={rootBranch + "/src/assets/pdf/syllabus/2nd-sem.pdf"}
+              target="_blank"
+            >
               2
             </a>
           </li>
           <li className="semester-option">
-            <a href="/src/assets/pdf/syllabus/3rd-sem.pdf" target="_blank">
+            <a
+              href={rootBranch + "/src/assets/pdf/syllabus/3rd-sem.pdf"}
+              target="_blank"
+            >
               3
             </a>
           </li>
           <li className="semester-option syllabus-1-8">
             <a
-              href="/src/assets/pdf/syllabus/whole-syllabus.pdf"
+              href={rootBranch + "/src/assets/pdf/syllabus/whole-syllabus.pdf"}
               target="_blank"
             >
               BIM-COURSE-STRUCTURE.pdf
