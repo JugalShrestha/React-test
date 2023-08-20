@@ -1,5 +1,4 @@
 import jsPDF from "jspdf";
-import rootBranch from "../../../components/variables/rootBranch";
 
 interface Props {
   handwriting: string;
@@ -35,7 +34,7 @@ const Text2HwOutput: React.FC<Props> = ({
       doc.setFont("CustomFont");
     } else {
       doc.addFont(
-        rootBranch + "../../../../src/assets/fonts/" + handwriting + ".ttf",
+        "/src/assets/fonts/" + handwriting + ".ttf",
         "Handwriting",
         "normal"
       );
