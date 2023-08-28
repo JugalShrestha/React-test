@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GoBackBtn from "../../../components/GoBackBtn";
 import Text2HwOutput from "./Text2HwOutput";
 import handwritings from "../../../components/variables/handwriting";
+import rootBranch from "../../../components/variables/rootBranch";
 
 const Text2Hw = () => {
   const [handwriting, setHandwriting] = useState(handwritings[0].fontName);
@@ -134,7 +135,12 @@ const Text2Hw = () => {
         </div>
         <div className="sub-header opacity">
           how to add your own handwriting?
-          <a href="pdf/how-to-add-your-handwriting.pdf" target="_blank">
+          <a
+            href={
+              rootBranch + "/src/assets/pdf/how-to-add-your-handwriting.pdf"
+            }
+            target="_blank"
+          >
             click_here!
           </a>
         </div>
@@ -192,7 +198,12 @@ const Text2Hw = () => {
         </div>
         <div className="sub-header opacity">
           see the real output of this project?
-          <a href="pdf/examples-of-real-time-output.pdf" target="_blank">
+          <a
+            href={
+              rootBranch + "/src/assets/pdf/examples-of-real-time-output.pdf"
+            }
+            target="_blank"
+          >
             click_here!
           </a>
         </div>

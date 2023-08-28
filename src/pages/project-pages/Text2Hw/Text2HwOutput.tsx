@@ -34,6 +34,10 @@ const Text2HwOutput: React.FC<Props> = ({
       doc.addFont(customHw, "CustomFont", "normal");
       doc.setFont("CustomFont");
     } else {
+      doc.addFileToVFS(
+        "Handwriting.tff",
+        `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf"
+      );
       doc.addFont(
         `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf",
         "Handwriting",

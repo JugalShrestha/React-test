@@ -1,5 +1,3 @@
-// import jsPDF from "jspdf";
-
 import jsPDF from "jspdf";
 import collegeLogo from "../../../assets/images/college-logo.jpg";
 import studentData from "../../../components/variables/studentData";
