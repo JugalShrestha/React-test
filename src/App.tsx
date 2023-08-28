@@ -21,7 +21,7 @@ const App = () => {
             element={<SearchPage searchItem={"project"} />}
           />
           <Route
-            path={rootBranch + "/notes"}
+            path={rootBranch + "/note"}
             element={<SearchPage searchItem={"note"} />}
           />
           <Route path={rootBranch + "/routine"} element={<Routine />} />

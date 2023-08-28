@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import rootBranch from "./variables/rootBranch";
 
 const SearchBar = () => {
   const [searchable, setSearchable] = useState("");
@@ -26,7 +27,7 @@ const SearchBar = () => {
           ></input>
         </div>
         <Link
-          to={`/search?query=${encodeURIComponent(searchable)}`}
+          to={`${rootBranch}/search?query=${encodeURIComponent(searchable)}`}
           className="search-btn"
         >
           <div className="search-txt">Search</div>

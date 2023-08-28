@@ -9,13 +9,13 @@ const NavBar = () => {
           BIM21
         </Link>
         <div className="pc-options">
-          <Link to="/projects" className="nav-option">
+          <Link to={rootBranch + "/project"} className="nav-option">
             Projects
           </Link>
-          <Link to="/routine" className="nav-option">
+          <Link to={rootBranch + "/routine"} className="nav-option">
             Routine
           </Link>
-          <Link to="/notes" className="nav-option">
+          <Link to={rootBranch + "/note"} className="nav-option">
             Notes
           </Link>
           <a
