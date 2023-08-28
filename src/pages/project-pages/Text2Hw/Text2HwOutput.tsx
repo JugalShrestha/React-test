@@ -1,5 +1,6 @@
 import jsPDF from "jspdf";
 import rootBranch from "../../../components/variables/rootBranch";
+import { useState } from "react";
 
 interface Props {
   handwriting: string;
@@ -20,31 +21,67 @@ const Text2HwOutput: React.FC<Props> = ({
   customHwChecker,
   customHw,
 }) => {
-  let output = "";
-  function text2handwritingConvertionOutput() {
+  //For output
+  const [pdfDataUri, setPdfDataUri] = useState<string | null>(null);
+  const [downloadText2Hw, setDownloadText2Hw] = useState(false);
+  //Loading the font as Binary
+  async function loadFontAsBinary(url: string) {
+    try {
+      const response = await fetch(url);
+      if (response.ok) {
+        const fontData = await response.arrayBuffer();
+        return fontData;
+      } else {
+        throw new Error(
+          `Failed to fetch font: ${response.status} ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("Error loading font:", error);
+      return null;
+    }
+  }
+
+  // Function to convert ArrayBuffer to Base64
+  function arrayBufferToBase64(buffer: ArrayBuffer) {
+    let binary = "";
+    const bytes = new Uint8Array(buffer);
+    const len = bytes.byteLength;
+    for (let i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
+  }
+
+  async function text2handwritingConvertionOutput() {
     const doc = new jsPDF({
       orientation: "p",
       unit: "mm",
       format: "a4",
     });
 
-    doc.setFontSize(textSize);
+    const fontUrl = `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf";
 
+    const binaryFont = await loadFontAsBinary(fontUrl);
+
+    doc.setFontSize(textSize);
     if (customHwChecker) {
       doc.addFont(customHw, "CustomFont", "normal");
       doc.setFont("CustomFont");
     } else {
-      doc.addFileToVFS(
-        "Handwriting.tff",
-        `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf"
-      );
-      doc.addFont(
-        `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf",
-        "Handwriting",
-        "normal"
-      );
-
-      doc.setFont("Handwriting");
+      if (binaryFont) {
+        const base64Font = arrayBufferToBase64(binaryFont);
+        doc.addFileToVFS(
+          `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf",
+          base64Font
+        );
+        doc.addFont(
+          `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf",
+          "Handwriting",
+          "normal"
+        );
+        doc.setFont("Handwriting");
+      }
     }
 
     // Set initial position
@@ -103,14 +140,48 @@ const Text2HwOutput: React.FC<Props> = ({
       doc.text(line, x, y);
       y += randomLineSpacing;
     });
-    output = doc.output("datauristring");
+    const output = doc.output("datauristring");
+    setPdfDataUri(output);
+    if (downloadText2Hw) {
+      console.log("downloading:" + downloadText2Hw);
+
+      doc.save(handwriting + ".pdf");
+      setDownloadText2Hw(false);
+    }
   }
 
-  text2handwritingConvertionOutput();
+  const generatePdf = () => {
+    text2handwritingConvertionOutput();
+  };
+
+  const realDownloadPdf = () => {
+    text2handwritingConvertionOutput();
+  };
+
+  const downloadPdf = () => {
+    setDownloadText2Hw(true);
+    realDownloadPdf();
+  };
+
   return (
     <div className="text-2-handwriting-output-whole">
-      <div className="header">output:</div>
-      <iframe src={output} className="text-2-handwriting-output"></iframe>
+      <div className="download-field">
+        <div onClick={generatePdf} className="download">
+          Generate
+        </div>
+        <div onClick={downloadPdf} className="download">
+          Download
+        </div>
+      </div>
+      {pdfDataUri && (
+        <>
+          <div className="header">output:</div>
+          <iframe
+            src={pdfDataUri}
+            className="text-2-handwriting-output"
+          ></iframe>
+        </>
+      )}
     </div>
   );
 };

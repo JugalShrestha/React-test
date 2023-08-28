@@ -216,7 +216,6 @@ const Text2Hw = () => {
           customHwChecker={customHwChecker}
           customHw={customHw}
         />
-        <div className="download">download</div>
       </div>
     </section>
   );

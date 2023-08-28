@@ -715,6 +715,8 @@ body{
                     font-size: var(--text-font-size);
                     font-weight: bold;
                     opacity: 50%;
+                    display: flex;
+                    gap: 1vh;
                     a{
                         color: var(--n2-color);
                     }
@@ -738,7 +740,7 @@ body{
                     .customizations, .headers{
                         width: 100%;
                         display: grid;
-                        grid-template-columns: 30% auto 30%;
+                        grid-template-columns: auto 30% auto;
                         border-bottom: .3vh solid var(--shadow);
                         .header{
                             font-weight: 900;
@@ -752,6 +754,10 @@ body{
                             &:nth-child(1){
                                 border-left: none !important;
                             }
+                        }
+                        .generate-pdf{
+                            cursor: pointer;
+                            background: var(--n2-color) !important;
                         }
                         input{
                             border-left: .3vh solid var(--shadow) !important;
@@ -771,7 +777,7 @@ body{
                 }
                 .text-2-handwriting-output-whole{
                     width: 100%;
-                    height: 60vh;
+                    height: fit-content;
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
@@ -779,7 +785,7 @@ body{
                     gap:1vh;
                     .text-2-handwriting-output{
                         width: 100%;
-                        height: 100%;
+                        height: 60vh;
                         border-radius: .5vh;
                         background: var(--s1-color);
                         outline: none;
@@ -799,15 +805,26 @@ body{
                     font-size: var(--header-font-size);
                     background: var(--s1-color);
                 }
+                .download-field{
+                    display: flex;
+                    gap: 1vh;
+                    align-items: center;
+                    justify-content: center;
+                }
                 .download{
-                    padding: 2vh;
+                    padding: 1vh 2vh;
+                    transition: .2s ease;
+                    cursor: pointer;
                     border-radius: .5vh;
                     border: .3vh solid var(--shadow);
                     background: var(--n1-color);
                     color: var(--s1-color);
                     font-weight: 900;
-                    font-size: var(--header-font-size);
+                    font-size: var(--text-font-size);
                     text-transform: uppercase;
+                    &:hover{
+                        background: var(--n2-color) !important;
+                    }
                 }
             }
         }
