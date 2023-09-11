@@ -13,18 +13,12 @@ const Syllabus = () => {
       <div className="syllabus-body">
         <ul className="semester-options">
           <li className="semester-option">
-            <Link
-              to={rootBranch + "/src/assets/pdf/syllabus/2nd-sem.pdf"}
-              target="_blank"
-            >
+            <Link to={rootBranch + "/pdf/syllabus/2nd-sem.pdf"} target="_blank">
               2
             </Link>
           </li>
           <li className="semester-option">
-            <Link
-              to={rootBranch + "/src/assets/pdf/syllabus/3rd-sem.pdf"}
-              target="_blank"
-            >
+            <Link to={rootBranch + "/pdf/syllabus/3rd-sem.pdf"} target="_blank">
               3
             </Link>
           </li>
