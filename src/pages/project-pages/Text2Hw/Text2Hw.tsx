@@ -136,9 +136,7 @@ const Text2Hw = () => {
         <div className="sub-header opacity">
           how to add your own handwriting?
           <a
-            href={
-              rootBranch + "/src/assets/pdf/how-to-add-your-handwriting.pdf"
-            }
+            href={rootBranch + "/pdf/how-to-add-your-handwriting.pdf"}
             target="_blank"
           >
             click_here!
@@ -199,9 +197,7 @@ const Text2Hw = () => {
         <div className="sub-header opacity">
           see the real output of this project?
           <a
-            href={
-              rootBranch + "/src/assets/pdf/examples-of-real-time-output.pdf"
-            }
+            href={rootBranch + "/pdf/examples-of-real-time-output.pdf"}
             target="_blank"
           >
             click_here!
