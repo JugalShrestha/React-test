@@ -1,5 +1,5 @@
 import jsPDF from "jspdf";
-import collegeLogo from "../../../assets/images/college-logo.jpg";
+import collegeLogo from "/images/college-logo.jpg";
 import studentData from "../../../components/variables/studentData";
 import subjectData from "../../../components/variables/subjectData";
 

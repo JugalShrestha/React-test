@@ -60,7 +60,7 @@ const Text2HwOutput: React.FC<Props> = ({
       format: "a4",
     });
 
-    const fontUrl = `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf";
+    const fontUrl = `${rootBranch}/fonts/` + handwriting + ".ttf";
 
     const binaryFont = await loadFontAsBinary(fontUrl);
 
@@ -72,11 +72,11 @@ const Text2HwOutput: React.FC<Props> = ({
       if (binaryFont) {
         const base64Font = arrayBufferToBase64(binaryFont);
         doc.addFileToVFS(
-          `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf",
+          `${rootBranch}/fonts/` + handwriting + ".ttf",
           base64Font
         );
         doc.addFont(
-          `${rootBranch}/src/assets/fonts/` + handwriting + ".ttf",
+          `${rootBranch}/fonts/` + handwriting + ".ttf",
           "Handwriting",
           "normal"
         );
